@@ -1,0 +1,88 @@
+<div class="left">
+  <div class="all_user">
+    <div id="search-contact">
+      <input
+        type="text"
+        class="search-contact-list"
+        placeholder="Tìm kiếm..."
+        data-uid="<%=user._id%>"
+      />
+      <span class="search-user-list-results">
+        <h3>Kết quả</h3>
+        <div class="search-user-list-content"></div>
+      </span>
+    </div>
+    <div class="tab-content">
+      <div id="all-chat">
+        <ul class="people no-padding-start">
+          <% allConversationWithMessages.forEach(function(conversation){%> <%
+          if(conversation.members){%>
+          <a
+            href="#uid_<%= conversation._id %>"
+            class="room-chat"
+            data-target="#to_<%= conversation._id %>"
+          >
+            <li class="person group-chat" data-chat="<%= conversation._id %>">
+              <div class="left-avatar">
+                <img src="images/users/images-group.jpg" alt="" />
+              </div>
+              <span class="name">
+                <span class="group-chat-name">Group:</span><%= conversation.name
+                %>
+              </span>
+              <span class="time"
+                ><%=
+                convertTimes(lastItemOfArray(conversation.messages).createdAt)%></span
+              >
+              <span class="preview notif-chat">
+                <% if(lastItemOfArray(conversation.messages).messageType
+                ==="text"){ %> <%= lastItemOfArray(conversation.messages).text
+                %> <%}%> <%
+                if(lastItemOfArray(conversation.messages).messageType
+                ==="image"){ %> đã gửi 1 ảnh <%}%> <%
+                if(lastItemOfArray(conversation.messages).messageType
+                ==="file"){ %> đã gửi 1 file <%}%>
+              </span>
+            </li>
+          </a>
+          <%}else{%>
+          <a
+            href="#uid_<%= conversation._id %>"
+            class="room-chat"
+            data-target="#to_<%= conversation._id %>"
+          >
+            <li class="person" data-chat="<%= conversation._id %>">
+              <div class="left-avatar">
+                <img src="images/users/<%= conversation.avatar %>" alt="" />
+              </div>
+              <span class="name">
+                <%= conversation.username%>
+              </span>
+              <span class="time"
+                ><%=
+                convertTimes(lastItemOfArray(conversation.messages).createdAt)%></span
+              >
+              <span class="preview notif-chat">
+                <% if(lastItemOfArray(conversation.messages).messageType
+                ==="text"){ %> <%= lastItemOfArray(conversation.messages).text
+                %> <%}%> <%
+                if(lastItemOfArray(conversation.messages).messageType
+                ==="image"){ %> đã gửi 1 ảnh <%}%> <%
+                if(lastItemOfArray(conversation.messages).messageType
+                ==="file"){ %> đã gửi 1 file <%}%>
+              </span>
+            </li>
+          </a>
+          <%}%> <%})%>
+        </ul>
+        <hr />
+        <div class="read-more-user">
+          <a href="javascript:void(0)" id="link-read-more-user-chat-all">
+            <strong>xem them 10 nguoi nua</strong>
+          </a>
+        </div>
+        <hr />
+      </div>
+    </div>
+  </div>
+</div>

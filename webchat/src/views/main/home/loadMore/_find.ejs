@@ -1,0 +1,13 @@
+<ul>
+    <% useradd.forEach(function(userInfor){ %> 
+        <li>
+            <span>
+                <img class="avatar-small" src="/images/users/<%= userInfor.avatar%>" alt=""> 
+                <strong><%= userInfor.username %></strong>
+                <a href="javascript:void(0)" data-uid="<%= userInfor._id %>" class="add-new-user-in-group">
+                    <i class="fa fa-user-plus" data-chat="<%= idGroup %>"></i>
+                </a>
+            </span><br><br>                         
+        </li>    
+    <%})%>
+</ul>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>web-Chat</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bower/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" href="bower/emojionearea/dist/emojionearea.min.css">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/emojione@4.0.0/lib/js/emojione.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emojione@4.0.0/extras/css/emojione.min.css"/> -->
+    <script src="emojione/lib/js/emojione.min.js"></script>
+    <link rel="stylesheet" href="emojione/extras/css/emojione.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="overlay"><img src="" id="showzoom"></div>
+    <%- include('./navbar'); %>
+    <!--duong dan main/home/home.ejs-->
+    <div class="container">
+        <div class="row content">
+            <div class="col-sm-3 sidenav no-padding">
+                <%- include('home/left'); %>
+            </div>    
+            <div class="col-sm-9 sidenav no-padding">
+                <%-include('home/right'); %>
+            </div>
+        </div>
+    </div>
+    <script src="bower/jquery/dist/jquery.min.js"></script>
+    <script src="bower/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="bower/jquery.nicescroll/dist/jquery.nicescroll.min.js"></script>
+    <script src="bower/moment/min/moment.min.js"></script>
+    <script src="bower/moment/min/moment-with-locales.min.js"></script>
+    <script src="bower/emojionearea/dist/emojionearea.min.js"></script>
+    
+    <script>src="socket.io/socket.io.js"</script>
+     <!-- My js-->
+     <script src="js/mainConfig.js"></script>
+     <script src="js/caculateNotification.js"></script>
+     <script src="js/addContact.js"></script>
+     <script src="js/removeContact.js"></script>
+     <script src="js/removeRequestContactSent.js"></script>
+     <script src="js/removeRequestContactReceived.js"></script>
+     <script src="js/approveRequestContactReceived.js"></script>
+     <script src="js/readMoreContacts.js"></script>
+     <script src="js/findUsersContact.js"></script>
+     
+     <script src="js/textAndEmojiChat.js"></script>
+     <script src="js/caculateNumberMessageGroup.js"></script>
+     <script src="js/updateUser.js"></script>
+     <script src="js/typingOnOff.js"></script>
+     <script src="js/imageChat.js"></script>
+     <script src="js/attachmentChat.js"></script>
+     <script src="js/userOnOffline.js"></script>
+
+     <script src="js/findUserAddGroup.js"></script>
+     <script src="js/addorRemoveUserGroup.js"></script>
+     <script src="js/createGroupChat.js"></script>
+     <script src="js/readMoreMessages.js"></script>
+     <script src="js/readMoreUserAllChat.js"></script>
+     
+     <script src="js/findNewUserAddGroup.js"></script>
+     <script src="js/addNewUserInGroup.js"></script>
+     <script src="js/removeUserInGroup.js"></script>
+     <script src="js/removeGroupChat.js"></script>
+
+     <script src="js/talkWithUser.js"></script>
+     <script src="js/getViewChat.js"></script>
+     <script src="js/getViewChatGroup.js"></script>
+     
+     <script src="js/searchListUserChat.js"></script>
+     <script src="js/loadMessage.js"></script>
+    <%- include('find/finduser');%>
+    <%- include('./contactsModal'); %> 
+    <%- include('./contacts'); %>
+    <%- include('./profileUserModal');%> 
+    <%- include('createGroup/createGroupModal');%>
+</body>
+</html>

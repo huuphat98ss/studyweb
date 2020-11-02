@@ -1,0 +1,64 @@
+    <% newMessage.forEach(function(message){ %>  
+        <% if(message.conversationType === "group") { %>    
+                    <% if(message.messageType === "text" ) { %> 
+                        <div class="time-chat <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>"  data-mess-id="<%= message.id %>"><%=  timeSendMess(message.createdAt) %></div>           
+                        <div class="bubble <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>" data-mess-id="<%= message.id %>">
+                            <img src="/images/users/<%= message.sender.avatar %>" class="avatar-small"> 
+                             <span class="notif-chat"> <%=  message.text %> </span>
+                        </div>
+                    <% } %>    
+                    <% if(message.messageType === "image" ) { %> 
+                        <div class="time-chat <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>"  data-mess-id="<%= message.id %>"><%=  timeSendMess(message.createdAt) %></div>           
+                          
+                        <div class="bubble <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %> bubble-image-file" data-mess-id="<%= message.id %>">
+                            <img src="/images/users/<%= message.sender.avatar %>" class="avatar-small"> 
+                            <span class="notif-chat">  
+                                 <img src="data:<%= message.file.contentType %>; base64, <%= bufferBase64(message.file.data)%>" class="show-image-chat">   
+                            </span>                    
+                        </div>
+                    <% } %>  
+                    <% if(message.messageType === "file" ) { %> 
+                        <div class="time-chat <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>"  data-mess-id="<%= message.id %>"><%=  timeSendMess(message.createdAt) %></div>           
+                          
+                        <div class="bubble <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %> bubble-attach-file" data-mess-id="<%= message.id %>">
+                            <img src="/images/users/<%= message.sender.avatar %>" class="avatar-small">  
+                            <span class="notif-chat">
+                                <a href="data:<%= message.file.contentType %>; base64, <%= bufferBase64(message.file.data)%>"
+                                download="<%= message.file.fileName %>">
+                                <%= message.file.fileName %>
+                                </a>
+                            </span>
+                        </div>
+                    <% } %>         
+    <% } else{ %>                
+                        <% if(message.messageType === "text" ) { %> 
+                            <div class="time-chat <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>"  data-mess-id="<%= message.id %>"><%=  timeSendMess(message.createdAt) %></div>           
+                          
+                            <div class="bubble <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>" data-mess-id="<%= message.id %>">                              
+                                <span class="notif-chat"> <%=  message.text %> </span>
+                            </div>
+                        <% } %>    
+                        <% if(message.messageType === "image" ) { %> 
+                            <div class="time-chat <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>"  data-mess-id="<%= message.id %>"><%=  timeSendMess(message.createdAt) %></div>           
+                          
+                            <div class="bubble <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %> bubble-image-file" data-mess-id="<%= message.id %>">
+                                <span class="notif-chat">
+                                <img src="data:<%= message.file.contentType %>; base64, <%= bufferBase64(message.file.data)%>" class="show-image-chat">   
+                                </span>                        
+                            </div>
+                        <% } %>  
+                        <% if(message.messageType === "file" ) { %> 
+                            <div class="time-chat <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %>"  data-mess-id="<%= message.id %>"><%=  timeSendMess(message.createdAt) %></div>           
+                          
+                            <div class="bubble <% if(message.senderId == user._id) { %> me <%} else { %> you <% } %> bubble-attach-file" data-mess-id="<%= message.id %>">
+                                <span class="notif-chat">
+                                    <a href="data:<%= message.file.contentType %>; base64, <%= bufferBase64(message.file.data)%>"
+                                    download="<%= message.file.fileName %>">
+                                    <%= message.file.fileName %>
+                                    </a>
+                                </span>
+                            </div>
+                        <% } %>      
+    <% } %>
+    <% }) %>
+

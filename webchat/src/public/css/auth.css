@@ -1,0 +1,39 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  height: 100vh;
+  background-color: #f8f8f8;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  background-image: url("../images/background/bg.jpg");
+  background-size: cover;
+  background-repeat: none;
+  color: #fff;
+}
+.my-content {
+  margin-top: 130px;
+}
+.login .header{
+    text-align: center;
+}
+.login .box .form input[type="text"],
+.login .box .form input[type="password"] {
+  border-radius: 4px;
+  border: none;
+  color: #333333;
+  font-size: 16px;
+  height: 46px;
+  margin: 5px auto;
+  /* margin-bottom: 5px; */
+  padding: 13px 12px;
+  width: 70%;
+}
+.login .box .form input[type="submit"]{
+  margin: 5px auto;
+  font-size: 16px;
+}
+.radio-box{
+  margin:auto 90px!important;
+}

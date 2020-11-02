@@ -1,0 +1,54 @@
+<nav class="navbar navbar-default navheader">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" data-toggle="modal" href="#user-profile-modal" id="navbar-user" data-uid="<%= user._id %>">
+           <span> <img id="navbar-avatar" class="avatar-small" src="images/users/<%= user.avatar %>" alt="none"> </span>
+            <span id="navbar-username"><%= user.username %></span> 
+        </a>
+      </div>
+      <div class="nav navbar-nav navbar-search ">
+        <input type="text" id="input-find-users-contact" class="search-find-user" placeholder="Tìm kiếm kết bạn">          
+      </div>
+      <ul class="nav navbar-nav  navbar-right menu">
+        <li>
+            <a data-toggle="modal" href="#create-group" title="tao nhom" id="show-modal-create-group">
+                <i class="fa fa-pencil-square-o" aria-hidden="true"></i>                                 
+            </a>
+        </li>  
+        <!-- <li>
+            <a href="#find-user" data-toggle="modal" title="Quản lý liên lạc" id="show-modal">
+                <i class="fa fa-user-plus"></i>
+            </a>
+        </li> -->
+        <li>
+            <a href="#contactsModal" data-toggle="modal" title="thông báo kết bạn" id="show-modal-request">
+                <i class="fa fa-bell"></i>
+                <% if(( countAllcontactsSent + countAllcontactsReceived) >0) { %>
+                <div class="noti_contact_counter ">
+                    <%= countAllcontactsSent + countAllcontactsReceived  %>
+                </div>
+                <%} else{ %> 
+                    <div class="noti_contact_counter display-none "></div>
+                <% } %>
+            </a>
+        </li>
+        <li>
+            <a href="#contacts" data-toggle="modal" title="Danh sách" id="show-modal-contacts">
+                <i class="fa fa-book" ></i> 
+                <% if(countAllcontacts >0){ %>
+                    <div class="count-contacts">
+                       <%= countAllcontacts %>
+                    </div>
+                    <% }else{ %>
+                        <div class="count-contacts display-none "></div>
+                    <% } %>         
+            </a>
+        </li>
+        <li>
+            <a href="/logout">
+                <i class="fa fa-sign-out"></i>
+            </a>
+        </li>
+      </ul>  
+    </div>
+</nav>     
